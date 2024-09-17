@@ -1,0 +1,144 @@
+#include <stdio.h>
+int main() 
+{
+    int a[100], ch, n, i, j, k=0, temp,pos, num;
+    do{
+    printf("\n1.create");
+    printf("\n2.display");
+    printf("\n3.search");
+    printf("\n4.sorting");
+    printf("\n5.insertion");
+    printf("\n6.deletion");
+    printf("\nenter your choice:");
+    scanf("%d", &ch);
+    switch(ch)
+    {
+        case 1: 
+        printf("enter how many nos u want:");
+        scanf("%d", &n);
+        for(i=0;i<n;i++)
+        {
+            printf("the numbers are:");
+            scanf("%d", &a[i]);
+        }
+        break;
+        case 2:
+        for(i=0;i<n;i++)
+        {
+            printf("\n%d", a[i]);
+        }
+        break;
+        case 3:
+        
+        printf("enter n:");
+        scanf("%d", &n);
+        for(i=0;i<n;i++)
+        {
+            printf("the numbers are:");
+            scanf("%d", &a[i]);
+        }
+        printf("enter the element to search:") ;
+        scanf("%d", &j);
+        for(i=0;i<n;i++)
+        {
+          if(a[i]==j)
+          {
+              k=1;
+              break;
+          }
+        }
+        if(k==1)
+        {
+           printf ("\n%d element found",i);
+        }
+        else
+       {
+           printf ("element is not found");
+        }
+        break;
+        case 4:
+        printf("enter n:");
+        scanf("%d", &n);
+        for(i=0;i<n;i++)
+        {
+            printf(" the numbers are:");
+            scanf("%d", &a[i]);
+        }
+        for(i=0;i<n;i++)
+        {
+           for(j=i+1;j<n;j++)
+           {
+              if(a[i]>a[j])
+                {
+                   temp=a[i];
+                   a[i]=a[j];
+                   a[j]=temp;
+                }
+            }
+        }
+        for(i=0;i<n;i++) 
+        {
+           printf("%d",a[i]);
+        }
+        for(i=n-1;i>=0;i--)
+        {
+           printf("\n%d", a[i]);
+        }
+        break;
+        case 5:
+        printf("enter n:");
+        scanf("%d", &n);
+        for(i=0;i<n;i++)
+        {
+            printf("the numbers are:");
+            scanf("%d", &a[i]);
+        }
+        printf("enter at position:");
+        scanf("%d", &pos);
+    
+        printf("enter the num to insert:");
+        scanf("%d", &num);
+        for(i=n;i>=pos;i--)
+        {
+            a[i]=a[i-1];
+        }
+        a[pos-1]=num;
+        n++;
+        for(i=0;i<n;i++)
+        {
+            printf("\n%d", a[i]);
+        }
+        break;
+        case 6:
+        printf("enter n:");
+        scanf("%d", &n);
+        for(i=0;i<n;i++)
+        {
+            printf("the numbers are:");
+            scanf("%d", &a[i]);
+        }
+        printf("enter the position to delete:");
+        scanf("%d", &pos);
+        if(pos<0||pos>n)
+        {
+            printf("invalid position");
+        }
+        else
+        {
+            for(i=pos-1;i<n;i++)
+            {
+               a[i]=a[i+1];
+            }
+            n--;
+        }
+        for(i=0;i<n;i++)
+        {
+            printf("\n%d", a[i]);
+        }
+
+
+        
+        
+    }
+    }while(ch!=0);
+}
